@@ -22,15 +22,15 @@ const index = ({ results }) => {
 export default index;
 
 export async function getServerSideProps(context) {
-  const ganre = await context.query.ganre;
+  const ganre = context.query.genre;
+  console.log("ganre:");
+  console.log(`https://api.themoviedb.org/3${requests[ganre]?.url}`);
 
-  const res = await fetch(
+  const request = await fetch(
     `https://api.themoviedb.org/3${
       requests[ganre]?.url || requests.fetchTrending.url
     }`
-  );
-
-  let request = await res.json();
+  ).then((res) => res.json());
 
   return {
     props: { results: request.results },

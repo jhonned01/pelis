@@ -8,7 +8,7 @@ export default {
 
   fetchTopRate: {
     title: "Top Rate",
-    url: `/discover/movie?api_key${API_KEY}&language=en-US`,
+    url: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   },
   fetchActionMovies: {
     title: "Action",
