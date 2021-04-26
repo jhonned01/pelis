@@ -23,8 +23,6 @@ export default index;
 
 export async function getServerSideProps(context) {
   const ganre = context.query.genre;
-  console.log("ganre:");
-  console.log(`https://api.themoviedb.org/3${requests[ganre]?.url}`);
 
   const request = await fetch(
     `https://api.themoviedb.org/3${
