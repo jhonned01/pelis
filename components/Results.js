@@ -1,6 +1,7 @@
 import React from "react";
 import Thumbnail from "./Thumbnail";
 import FlipMove from "react-flip-move";
+import Link from "next/link";
 const Results = ({ results }) => {
   return (
     <FlipMove
@@ -9,7 +10,11 @@ const Results = ({ results }) => {
     "
     >
       {results.map((result) => (
-        <Thumbnail key={result.id} result={result}></Thumbnail>
+        <Link key={result.id} href={`/movie/${result.id}`}>
+          <a>
+            <Thumbnail key={result.id} result={result}></Thumbnail>
+          </a>
+        </Link>
       ))}
     </FlipMove>
   );
