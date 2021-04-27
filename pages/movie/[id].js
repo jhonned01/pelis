@@ -1,10 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import { Header } from "../../components/Header";
-import Navbar from "../../components/NavBar";
 import Movie from "../../components/Movie";
 import { useRouter } from "next/router";
-import detailMovie from "../../utils/detailMovie";
 
 const Movies = ({ Details_Movie, Get_Movie }) => {
   console.log("====================================");
@@ -17,8 +14,7 @@ const Movies = ({ Details_Movie, Get_Movie }) => {
       <Head>
         <title>Movie </title>
       </Head>
-      <Header />
-      <Navbar />
+
       <Movie result={Details_Movie} />
     </div>
   );

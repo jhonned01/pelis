@@ -1,19 +1,13 @@
 import Head from "next/head";
-import { Header } from "../components/Header";
-import Navbar from "../components/NavBar";
 import Results from "../components/Results";
 import requests from "../utils/requests";
 const index = ({ results }) => {
-  console.log("====================================");
-  console.log(results);
-  console.log("====================================");
   return (
     <div className="">
       <Head>
         <title>Peliculas</title>
       </Head>
-      <Header />
-      <Navbar />
+
       <Results results={results} />
     </div>
   );
