@@ -12,9 +12,6 @@ const Movies = ({ Details_Movie, Get_Movie }) => {
   console.log("====================================");
   console.log(Get_Movie);
 
-  const router = useRouter();
-  const { id } = router.query;
-
   return (
     <div>
       <Head>
@@ -22,9 +19,7 @@ const Movies = ({ Details_Movie, Get_Movie }) => {
       </Head>
       <Header />
       <Navbar />
-      <Movie />
-
-      <p>{id}</p>
+      <Movie result={Details_Movie} />
     </div>
   );
 };

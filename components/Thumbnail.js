@@ -20,7 +20,6 @@ const Thumbnail = forwardRef(({ result }, ref) => {
         width={1920}
         alt="poster"
       />
-
       <div>
         <p className="truncate max-w-md">{result.overview}</p>
         <h2 className="mt-1 text-2xl text-white transition-all duration-100 ease-in-out group-hover:font-bold">
