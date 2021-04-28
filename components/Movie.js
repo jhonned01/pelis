@@ -1,28 +1,35 @@
 import React from "react";
-import ReactPlayer from "react-player";
+import YouTube from "react-youtube";
 import Image from "next/image";
 
-const Movies = ({ result }) => {
+const Movies = ({ result, get_Movie }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
 
   return (
-    <div className=" px-5  my-10 bg-red-900 ">
+    <div className=" px-5  my-10  shadow-2xl ">
       <div className="  md:flex   ">
-        <div className=" bg-red-300 w-full md:max-w-[23rem] ">
+        <div className="    bg-white center  w-full md:max-w-[28rem] ">
           <Image
             layout="responsive"
             src={
               `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
               `${BASE_URL}${result.poster_path}`
             }
-            height={1089}
-            width={1920}
             alt="poster"
+            objectFit="cover"
+            width={1000}
+            height={1000}
+            className="h-full "
           />
-
-          <button className="h-10 width-screen ">trailer</button>
         </div>
-        <div className="space-y-3 bg-blue-900 flex-1 space-x-2">
+        <div className="space-y-3 flex-1 space-x-2">
           <h2 className="mt-1 text-2xl text-white px-2 ">
             {result.title || result.original_name}
           </h2>
@@ -36,12 +43,19 @@ const Movies = ({ result }) => {
               <p key={ganre.id}>{ganre.name},</p>
             ))}
           </h2>
-          <p className="text-xl">Sinopsis: {result.overview}</p>
-
-          <ReactPlayer
-            controls
-            url="https://www.youtube.com/watch?v=L2n3lBHiZRs&ab_channel=YemiAladeVEVO"
-          />
+          <p className="text-xl">
+            Sinopsis:{" "}
+            {result.overview ? result.overview : "Sinopsis no disponbile"}
+          </p>
+          {get_Movie.length ? (
+            <YouTube
+              className="w-full "
+              videoId={`${get_Movie[0].key}`}
+              opts={opts}
+            />
+          ) : (
+            <p>Trailer no disponible.</p>
+          )}
         </div>
       </div>
     </div>
