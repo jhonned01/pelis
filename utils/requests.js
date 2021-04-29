@@ -1,6 +1,9 @@
 const API_KEY = process.env.API_KEY;
 
 export default {
+  fetchSearch: {
+    url: `https://api.themoviedb.org/3/search/movie?api_key=ecf662560314b6151a05a6643a4221c6&language=es-MX&query=`,
+  },
   fetchTrending: {
     title: "Trending",
     url: `/trending/all/week?api_key=${API_KEY}&language=es-MX`,
